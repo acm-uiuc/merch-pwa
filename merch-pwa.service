@@ -1,0 +1,11 @@
+[Unit]
+Description=Merch PWA Interface
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/merch-pwa
+ExecStart=HOST=merch.acm.illinois.edu yarn start
+
+[Install]
+WantedBy=multi-user.target

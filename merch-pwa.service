@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=pi
 WorkingDirectory=/home/pi/merch-pwa
-ExecStart=HOST=merch.acm.illinois.edu yarn start
+ExecStart=/home/pi/.nvm/versions/node/v16.13.0/bin/yarn start
 
 [Install]
 WantedBy=multi-user.target

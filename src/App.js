@@ -1,7 +1,8 @@
 import React from 'react';
 
-import logo from './logo.svg';
 import './App.css';
+import bottle from './images/bottle.png';
+import Items from './Items';
 
 class App extends React.Component {
   constructor() {
@@ -19,11 +20,11 @@ class App extends React.Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            <code>{this.state.apiStatus}</code>
-          </p>
+          <img src={bottle} className="header-bottle" alt="bottle" />
+          <h1>Merch</h1>
+          <img src={bottle} className="header-bottle" alt="bottle" />
         </header>
+        <Items></Items>
       </div>
     );
   }

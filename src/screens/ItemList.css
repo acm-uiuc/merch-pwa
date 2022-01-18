@@ -1,0 +1,33 @@
+.itemTable {
+  height: 90vh;
+  width: 100vw;
+  overflow: scroll;
+}
+
+.loadBox {
+  width: 100vw;
+  height: 100px;
+  position: absolute;
+  top: calc(10vh - 100px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+  font-size: 30pt;
+  color: #bababa;
+}
+
+@keyframes spinningKeyF {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinning {
+  animation: 0.7s linear 0s infinite normal none running spinningKeyF;
+}

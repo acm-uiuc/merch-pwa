@@ -1,0 +1,55 @@
+.loginContent {
+  height: 90vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginLabel {
+  font-size: 20pt;
+  font-weight: 500;
+  text-align: left;
+  width: 40vw;
+}
+
+.loginForm {
+  margin-top: 15px;
+  width: 40vw;
+}
+
+.loginForm>input[type=password] {
+  font-size: 18px;
+  height: 36px;
+  border-width: 1px 0 1px 1px;
+  border-color: black;
+  border-radius: 6px 0 0 6px;
+  box-sizing: border-box;
+  display: inline;
+  vertical-align: top;
+  width: calc(100% - 36px);
+  border-style: solid;
+}
+
+.loginForm>input[type=password]:focus {
+  outline: none;
+}
+
+.loginForm>button {
+  height: 36px;
+  width: 36px;
+  font-size: 14pt;
+  border-radius: 0 6px 6px 0;
+  border-width: 1px;
+  border-color: black;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: inline;
+  vertical-align: top;
+  background-color: var(--green);
+  border-style: solid;
+}

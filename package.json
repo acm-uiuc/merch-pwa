@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.6.0",
-    "@emotion/styled": "^11.6.0",
-    "@mui/material": "^5.1.1",
+    "@solana/web3.js": "^1.31.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -38,5 +36,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://merch.acm.illinois.edu:5000"
+  "proxy": "http://localhost:5000"
 }

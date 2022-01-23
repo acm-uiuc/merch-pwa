@@ -1,7 +1,7 @@
 import React from 'react';
 
 import 'components/ListItem.css';
-import defaultItem from 'images/defaultItem.svg';
+import ItemImage from './ItemImage';
 
 /*
   This component is a single row in the table in the ItemList screen.
@@ -10,8 +10,14 @@ import defaultItem from 'images/defaultItem.svg';
     item: The item that this row should display.
     solanaPrice: The current price of Solana in USD. Null if the price hasn't
         been fetched yet.
+    purchase: A function that directs the user in purchasing the given item.
 */
 class ListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.purchase = this.purchase.bind(this);
+  }
+
   /*
     Returns the filled in contents of the nutrition panel info box.
   */
@@ -43,11 +49,11 @@ class ListItem extends React.Component {
   }
 
   /*
-    Returns the scientific notation of this item's Solana price.
+    Returns this item's Solana price.
   */
-  solScientific() {
+  solPrice() {
     if (this.props.solanaPrice === null) {
-      return { num: '—', expo: '—' };
+      return { num: '—', expo: '—', solPrice: null };
     }
     let solPriceNum = this.props.item.price / this.props.solanaPrice;
     let eString = solPriceNum.toExponential(2);
@@ -55,16 +61,25 @@ class ListItem extends React.Component {
     let cleanedExponent = eStringComponents[1][0] === '+'
         ? eStringComponents[1].substring(1)
         : eStringComponents[1];
-    return { num: eStringComponents[0], expo: cleanedExponent };
+    return { num: eStringComponents[0], expo: cleanedExponent,
+             solPrice: solPriceNum };
+  }
+
+  /*
+    Calls the function to direct the user to purchase this item.
+  */
+  purchase(quotedSol) {
+    let purchaseData = { item: this.props.item, quotedSol: quotedSol };
+    this.props.purchase(purchaseData);
   }
 
   render() {
-    let sciPrice = this.solScientific();
+    let currentSolPrice = this.solPrice();
+    let purchaseHandler = this.purchase.bind(this, currentSolPrice.solPrice);
     return (
       <div className='listItem'>
-        <img src={this.props.item.image_url} alt={this.props.item.name}
-             className='itemImage'
-             onError={(e) => {e.target.src = defaultItem}}/>
+        <ItemImage url={this.props.item.image_url} name={this.props.item.name}
+                   className='listItemImage'/>
         <div className='itemNameLabel'>{this.props.item.name}</div>
         <div className='locAndNutritionBox'>
           <div className='locAndNutritionPanel'>
@@ -72,14 +87,17 @@ class ListItem extends React.Component {
             {this.nutritionPanels()}
           </div>
         </div>
-        <button className='buyButton'>
+        <button className='buyButton' onClick={purchaseHandler}>
           <i className="fas fa-shopping-cart buyButtonIcon"/>
-          <div><br/>{sciPrice.num}&#x00d7;10<sup>{sciPrice.expo}</sup> SOL</div>
+          <div>
+            <br/>{currentSolPrice.num}&#x00d7;10
+            <sup>{currentSolPrice.expo}</sup> SOL
+          </div>
           <div>({this.props.item.price.toFixed(2)} USD)</div>
         </button>
       </div>
     );
-  }
-}
+  }  // render()
+}  // class ListItem
 
 export default ListItem;

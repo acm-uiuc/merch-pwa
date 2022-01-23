@@ -12,6 +12,7 @@ import palantirLogo from 'images/palantirLogo.svg';
     items: An array of items in the machine.
     updateItems: A function that calls the api to fetch the latest list of items
         in the machine.
+    purchase: A function that directs the user in purchasing the given item.
 
   state:
     touchStart: Y position of the last touch start event. Used for the pull down
@@ -100,7 +101,6 @@ class ItemList extends React.Component {
                  '?ids=solana&vs_currencies=usd').then(response => {
       if (response.status === 200) {
         response.json().then(jsObj => {
-          console.log(jsObj.solana.usd);
           this.setState({ solanaPrice: jsObj.solana.usd });
         });
       } else {
@@ -113,7 +113,8 @@ class ItemList extends React.Component {
     let itemComponents =
         this.props.items.filter(item => item.quantity > 0).map((item, idx) => {
           return <ListItem item={item} key={idx}
-                           solanaPrice={this.state.solanaPrice}/>;
+                           solanaPrice={this.state.solanaPrice}
+                           purchase={this.props.purchase}/>;
         });
     let itemTableStyle = { transform: `translateY(${this.state.translate}px)` };
     if (this.state.translate === 0) {

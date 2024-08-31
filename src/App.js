@@ -45,10 +45,7 @@ class App extends React.Component {
     apiKey and items to null if it fails.
   */
   async getItems() {
-    return fetch('/api/get_items', {
-      headers: {
-        'Authorization': 'Bearer: ' + this.state.apiKey
-      }
+    return fetch('https://infra-core-api.aws.qa.acmuiuc.org/api/v1/vending/items', {
     }).then(response => {
       if (response.status !== 200) {
         sessionStorage.removeItem('apiKey');

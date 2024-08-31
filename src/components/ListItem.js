@@ -52,17 +52,8 @@ class ListItem extends React.Component {
     Returns this item's Solana price.
   */
   solPrice() {
-    if (this.props.solanaPrice === null) {
-      return { num: '—', expo: '—', solPrice: null };
-    }
-    let solPriceNum = this.props.item.price / this.props.solanaPrice;
-    let eString = solPriceNum.toExponential(2);
-    let eStringComponents = eString.split('e');
-    let cleanedExponent = eStringComponents[1][0] === '+'
-        ? eStringComponents[1].substring(1)
-        : eStringComponents[1];
-    return { num: eStringComponents[0], expo: cleanedExponent,
-             solPrice: solPriceNum };
+    return { num: 2, expo: 2,
+             solPrice: 2 };
   }
 
   /*
@@ -81,20 +72,6 @@ class ListItem extends React.Component {
         <ItemImage url={this.props.item.image_url} name={this.props.item.name}
                    className='listItemImage'/>
         <div className='itemNameLabel'>{this.props.item.name}</div>
-        <div className='locAndNutritionBox'>
-          <div className='locAndNutritionPanel'>
-            <div className='locLabel'>{this.props.item.locations[0]}</div>
-            {this.nutritionPanels()}
-          </div>
-        </div>
-        <button className='buyButton' onClick={purchaseHandler}>
-          <i className="fas fa-shopping-cart buyButtonIcon"/>
-          <div>
-            <br/>{currentSolPrice.num}&#x00d7;10
-            <sup>{currentSolPrice.expo}</sup> SOL
-          </div>
-          <div>({this.props.item.price.toFixed(2)} USD)</div>
-        </button>
       </div>
     );
   }  // render()

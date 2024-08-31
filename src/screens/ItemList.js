@@ -97,16 +97,7 @@ class ItemList extends React.Component {
     Fetches the current solana price and sets the solanaPrice state variable.
   */
   async getSolPrice() {
-    return fetch('https://api.coingecko.com/api/v3/simple/price' +
-                 '?ids=solana&vs_currencies=usd').then(response => {
-      if (response.status === 200) {
-        response.json().then(jsObj => {
-          this.setState({ solanaPrice: jsObj.solana.usd });
-        });
-      } else {
-        console.error('Solana price could not be fetched.');
-      }
-    });
+    this.setState({ solanaPrice: 0 });
   }
 
   render() {

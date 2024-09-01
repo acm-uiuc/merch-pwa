@@ -119,7 +119,7 @@ class ItemList extends React.Component {
       <div className='contentBox'>
         <div className='header'>
           <img src={acmLogo} alt='ACM logo' className='acmLogo'/>
-          <div className='merchLogo'>Vending Machine</div>
+          <div className='merchLogo'>Vending</div>
           {/* <img src={palantirLogo} alt='Palantir Logo' className='palantirLogo'/> */}
         </div>
         <div className='loadBox' style={itemTableStyle}>

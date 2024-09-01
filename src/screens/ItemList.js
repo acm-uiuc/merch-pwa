@@ -120,8 +120,8 @@ class ItemList extends React.Component {
       <div className='contentBox'>
         <div className='header'>
           <img src={acmLogo} alt='ACM logo' className='acmLogo'/>
-          <div className='merchLogo'>Merch</div>
-          <img src={palantirLogo} alt='Palantir Logo' className='palantirLogo'/>
+          <div className='merchLogo'>Vending Machine</div>
+          {/* <img src={palantirLogo} alt='Palantir Logo' className='palantirLogo'/> */}
         </div>
         <div className='loadBox' style={itemTableStyle}>
           <i className={spinnerClass} style={spinnerStyle}/>

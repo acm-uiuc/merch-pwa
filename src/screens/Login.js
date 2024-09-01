@@ -2,7 +2,6 @@ import React from 'react';
 
 import 'screens/Login.css';
 import acmLogo from 'images/acmLogo.svg';
-import palantirLogo from 'images/palantirLogo.svg';
 
 /*
   This screen shows a login page to enter the api key into.

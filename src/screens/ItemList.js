@@ -3,7 +3,6 @@ import React from 'react';
 import 'screens/ItemList.css';
 import ListItem from 'components/ListItem';
 import acmLogo from 'images/acmLogo.svg';
-import palantirLogo from 'images/palantirLogo.svg';
 
 /*
   This screen lists all the items in the vending machine.

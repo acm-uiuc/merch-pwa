@@ -65,8 +65,6 @@ class ListItem extends React.Component {
   }
 
   render() {
-    let currentSolPrice = this.solPrice();
-    let purchaseHandler = this.purchase.bind(this, currentSolPrice.solPrice);
     return (
       <div className='listItem'>
         <ItemImage url={this.props.item.image_url} name={this.props.item.name}
